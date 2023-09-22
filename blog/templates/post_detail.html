@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posts</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        /* Estilos CSS para centrar el contenido */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Para centrar verticalmente en la ventana */
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto; /* Para centrar horizontalmente */
+        }
+    </style>
+</head>
+<body>
+    <h1>Posts</h1>
+
+    <h2>{{ post.title }}</h2>
+    <h3>{{ post.date }}</h3>
+    <p>{{ post.description|safe }}</p>
+    <img src="{{ post.image.url }}" alt="{{ post.title }}" width="300" height="500">
+</body>
+</html>
+{% endblock %}

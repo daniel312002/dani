@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+<header class="row bg-black">
+    <div class="col-md-4">
+        <a href="URL_de_destino">
+            <img src="{% static 'portfolio/perfil1.jpg' %}" alt="" width="90" height="90">
+        </a>
+    </div>
+    <div class="col-md-8 my-auto">
+        <h1>I am <strong>Daniel</strong></h1>
+        <h3>Bienvenido a Hogwars</h3>
+        <p>¿Te interesa alguna casa?.</p>
+        <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portfolio/curriculum.pdf' %}" target="_blank">
+            Download
+        </a>
+    </div>
+</header>
+<div class="row my-4 text text-center">
+    <h1>Casas de Hogwars</h1>
+    <P>"La felicidad se puede encontrar incluso en los momentos más oscuros, si uno recuerda encender la luz." - Albus Dumbledore</P>
+    {% for project in projects %}
+        <div class="col-md-4">
+            <div class="card bg-black card-project">
+                <a href="{{ project.url }}" target="_blank">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h2>{{ project.title }}</h2>
+                    <p>{{ project.description }}</p>
+                    <br>
+                    {% if project.url %}
+                        <a href="{{ project.url }}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{ project.url }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
